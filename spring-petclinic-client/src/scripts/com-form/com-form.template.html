@@ -1,0 +1,38 @@
+<div class="section">
+<h2>Companies</h2>
+<form ng-submit="$ctrl.submitCompaniesForm()" style="max-width: 25em;">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" ng-model="$ctrl.companies.name" name="name" required/>
+        <span ng-show="comForm.name.$error.required" class="help-block">name is required.</span>
+    </div>
+
+    <div class="form-group">
+        <label>Info</label>
+        <input class="form-control" ng-model="$ctrl.companies.info" name="info" required/>
+        <span ng-show="comForm.info.$error.required" class="help-block">Info is required.</span>
+    </div>
+
+    <div class="form-group">
+        <label>Address</label>
+        <input class="form-control" ng-model="$ctrl.companies.address" name="address" required/>
+        <span ng-show="comForm.address.$error.required" class="help-block">Address is required.</span>
+    </div>
+
+    <div class="form-group">
+        <label>Tax code</label>
+        <input class="form-control" ng-model="$ctrl.companies.taxCode" name="taxCode" required/>
+        <span ng-show="comForm.taxCode.$error.required" class="help-block">taxCode is required.</span>
+    </div>
+    
+    <div class="form-group">
+        <label>Telephone</label>
+        <input class="form-control" ng-model="$ctrl.companies.telephone" name="telephone" required/>
+        <span ng-show="comForm.telephone.$error.required" class="help-block">Telephone is required.</span>
+    </div>
+    
+    <div class="form-group">
+        <button class="btn btn-default" type="submit">Submit</button>
+    </div>
+</form>
+</div>

@@ -91,7 +91,15 @@ this SpringBoot AngularJS Petclinic is splitted in 2 modules - a client module a
 | Gulp              | [Tasks automated by Gulp: minify CSS and JS, generate CSS from LESS, copy other static resources](spring-petclinic-client/gulpfile.js)  |
 | Angular JS        | [app.js, controllers and templates](spring-petclinic-client/src/scripts/)  |
 
-
+#Dev task for new features:
+* Back end: Add server Rest source
+* Front end: Add client template and js script, regist module in app.js:
+- component: map controller to REST servise requests.
+- controller module: function will be execute from client to request servise.
+- configuration module: router
+- Add template in client site and regist in app.js
+- Add link resources to template file in backend: regist ng-app, link frontend code
+- If need page with reload page, load page by controller, not rescontroller
 # Contributing
 
 The [issue tracker](https://github.com/spring-petclinic/spring-petclinic-angularjs/issues) is the preferred channel for bug reports, features requests and submitting pull requests.

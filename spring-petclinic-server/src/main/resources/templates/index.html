@@ -11,7 +11,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.png}"/>
 
-    <title>PetClinic :: a Spring Framework demonstration</title>
+    <title>My project use a Spring Framework demonstration</title>
     <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/petclinic.css}"/>
 
@@ -35,6 +35,18 @@
     <script th:src="@{/scripts/owner-form/owner-form.controller.js}"></script>
     <script th:src="@{/scripts/owner-form/owner-form.component.js}"></script>
 
+    <script th:src="@{/scripts/com-list/com-list.js}"></script>
+    <script th:src="@{/scripts/com-list/com-list.controller.js}"></script>
+    <script th:src="@{/scripts/com-list/com-list.component.js}"></script>
+
+    <script th:src="@{/scripts/com-details/com-details.js}"></script>
+    <script th:src="@{/scripts/com-details/com-details.controller.js}"></script>
+    <script th:src="@{/scripts/com-details/com-details.component.js}"></script>
+	
+    <script th:src="@{/scripts/com-form/com-form.js}"></script>
+    <script th:src="@{/scripts/com-form/com-form.controller.js}"></script>
+    <script th:src="@{/scripts/com-form/com-form.component.js}"></script>
+	
     <script th:src="@{/scripts/pet-form/pet-form.js}"></script>
     <script th:src="@{/scripts/pet-form/pet-form.controller.js}"></script>
     <script th:src="@{/scripts/pet-form/pet-form.component.js}"></script>
@@ -53,6 +65,12 @@
 
 <body class="container">
 <layout-nav></layout-nav>
+
+<div class="home-section">
+    <ul class="menu-list">
+		<layout-right></layout-right>
+    </ul>
+</div>
 <div class="container-fluid">
     <div class="container xd-container">
         <div ui-view=""></div>
@@ -60,5 +78,4 @@
 </div>
 <layout-footer></layout-footer>
 </body>
-
 </html>

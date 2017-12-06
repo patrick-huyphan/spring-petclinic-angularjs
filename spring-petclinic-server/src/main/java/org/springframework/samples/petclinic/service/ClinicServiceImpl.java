@@ -22,11 +22,15 @@ import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.samples.petclinic.repository.PetRepository;
 import org.springframework.samples.petclinic.repository.VetRepository;
 import org.springframework.samples.petclinic.repository.VisitRepository;
+import org.springframework.samples.petclinic.repository.CompanyRespository;
+import org.springframework.samples.petclinic.repository.CommentsRepository;
+import org.springframework.samples.petclinic.repository.FileInfoResporitory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.cache.annotation.CacheResult;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Mostly used as a facade for all Petclinic controllers
@@ -41,13 +45,26 @@ public class ClinicServiceImpl implements ClinicService {
     private VetRepository vetRepository;
     private OwnerRepository ownerRepository;
     private VisitRepository visitRepository;
+    private CompanyRespository companyRespository;
+    private CommentsRepository commentsRepository;
+    private FileInfoResporitory fileInfoRepository;
+    
 
     @Autowired
-    public ClinicServiceImpl(PetRepository petRepository, VetRepository vetRepository, OwnerRepository ownerRepository, VisitRepository visitRepository) {
+    public ClinicServiceImpl(PetRepository petRepository, 
+            VetRepository vetRepository, 
+            OwnerRepository ownerRepository, 
+            VisitRepository visitRepository, 
+            CompanyRespository comRespository, 
+            CommentsRepository commentsRepo,
+            FileInfoResporitory fileRepository) {
         this.petRepository = petRepository;
         this.vetRepository = vetRepository;
         this.ownerRepository = ownerRepository;
         this.visitRepository = visitRepository;
+        this.companyRespository = comRespository;
+        this.commentsRepository = commentsRepo;
+        this.fileInfoRepository = fileRepository;
     }
 
     @Override
@@ -62,6 +79,7 @@ public class ClinicServiceImpl implements ClinicService {
         return ownerRepository.findById(id).get();
     }
 
+    @Override
     @Transactional(readOnly = true)
     public Collection<Owner> findAll() throws DataAccessException {
         return ownerRepository.findAll();
@@ -100,5 +118,78 @@ public class ClinicServiceImpl implements ClinicService {
         return vetRepository.findAll();
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public Company findComByID(int id) {
+        return companyRespository.findById(id); //To change body of generated methods, choose Tools | Templates.
+    }
 
+    @Override
+    @Transactional
+    public void saveCompany(Company com) {
+        companyRespository.save(com); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Collection<Company> findAllCompany() {
+        List<Company> ret =  companyRespository.findAll(); //To change body of generated methods, choose Tools | Templates.
+//        for(Company a: ret)
+//        {
+//            System.out.println("findAllCompany() "+a.getName());
+//            List<Comment> c= a.getComments();
+//            for(Comment i:c)
+//            {
+//                System.out.println(i.getOwner().getFirstName()+" "+i.getDetail());
+//            }
+//        }
+//        System.err.println("DONE to get all companies");
+        return  ret;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Comment findCommentByID(int id) {
+        return commentsRepository.findById(id); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    @Override
+    @Transactional
+    public void saveComment(Comment com) {
+        commentsRepository.save(com); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Collection<Comment> allComment() {
+        return commentsRepository.findAll(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Collection<Comment> findAllCommentByOwner(Owner own) {
+        return commentsRepository.findByOwner(own); 
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public Collection<Comment> findAllCommentByCompanies(Company own) {
+        return commentsRepository.findByCompanies(own); 
+    }
+
+    @Override
+    public Collection<FileInfo> findAllFile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public FileInfo findFileByID() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void saveFile(FileInfo file) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

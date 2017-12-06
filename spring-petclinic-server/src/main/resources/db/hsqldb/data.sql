@@ -51,3 +51,14 @@ INSERT INTO visits VALUES (1, 7, '2013-01-01', 'rabies shot');
 INSERT INTO visits VALUES (2, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits VALUES (4, 7, '2013-01-04', 'spayed');
+
+INSERT INTO companies VALUES (1, 'Cty A', '00000000A', '110 W. Liberty St.', 'Madison, 00000000A', '6085551023',1);
+INSERT INTO companies VALUES (2, 'Cty B', '00000000B', '110 W. Liberty St.', 'Madison, 00000000B', '6085551023',1);
+INSERT INTO companies VALUES (3, 'Cty C', '00000000C', '110 W. Liberty St.', 'Madison, 00000000C', '6085551023',2);
+INSERT INTO companies VALUES (4, 'Cty D', '00000000D', '110 W. Liberty St.', 'Madison, 00000000D', '6085551023',3);
+
+INSERT INTO comments VALUES (1, 1, 3, '110 W. Liberty St., Madison, 00000000D', '2012-06-08');
+INSERT INTO comments VALUES (2, 3, 4, '110 W. Liberty St., Madison, 00000000D', '2012-06-08');
+INSERT INTO comments VALUES (3, 4, 2, '110 W. Liberty St., Madison, 00000000D', '2012-06-08');
+INSERT INTO comments VALUES (4, 2, 1, '110 W. Liberty St., Madison, 00000000D', '2012-06-08');
+INSERT INTO comments VALUES (5, 1, 1, '110 W. Liberty St., Madison, 00000000D', '2012-06-08');

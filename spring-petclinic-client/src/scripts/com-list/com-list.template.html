@@ -1,0 +1,33 @@
+<div class="section">
+<h2>Companies</h2>
+
+<form onsubmit="javascript:void(0)" style="max-width: 20em; margin-top: 2em;">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Filter" ng-model="$ctrl.query" />
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th class="hidden-sm hidden-xs">Address</th>
+        <th>Tax code</th>
+        <th>Telephone</th>
+        <th class="hidden-xs">Info</th>
+    </tr>
+    </thead>
+
+    <tr ng-repeat="owner in $ctrl.companies | filter:$ctrl.query track by owner.id">
+        <td>
+            <a ui-sref="comDetails({ comId: owner.id })">
+                {{owner.name}}
+            </a>
+        </td>
+        <td class="hidden-sm hidden-xs">{{owner.address}}</td>
+        <td>{{owner.taxCode}}</td>
+        <td>{{owner.telephone}}</td>
+        <td class="hidden-xs">{{owner.info}}</td>
+    </tr>
+</table>
+</div>

@@ -1,8 +1,8 @@
 'use strict';
 /* App Module */
 var petClinicApp = angular.module('petClinicApp', [
-    'ui.router', 'infrastructure', 'layoutNav', 'layoutFooter', 'layoutWelcome',
-    'ownerList', 'ownerDetails', 'ownerForm', 'petForm', 'visits', 'vetList']);
+    'ui.router', 'infrastructure', 'layoutNav', 'layoutFooter', 'layoutWelcome','layoutRight',
+    'ownerList', 'ownerDetails', 'ownerForm', 'comList', 'comDetails', 'comForm','petForm', 'visits', 'vetList']);
 
 petClinicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function(
     $stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
@@ -27,7 +27,7 @@ petClinicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider'
         });
 }]);
 
-['welcome', 'nav', 'footer'].forEach(function(c) {
+['welcome', 'nav', 'footer', 'right'].forEach(function(c) {
     var mod = 'layout' + c.toUpperCase().substring(0, 1) + c.substring(1);
     angular.module(mod, []);
     angular.module(mod).component(mod, {

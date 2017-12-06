@@ -22,7 +22,10 @@ import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Visit;
-
+import org.springframework.samples.petclinic.model.Company;
+import org.springframework.samples.petclinic.model.Comment;
+import org.springframework.samples.petclinic.model.FileInfo;
+//import org.springframework.samples.petclinic.model.;
 
 /**
  * Mostly used as a facade so all controllers have a single point of entry
@@ -33,18 +36,28 @@ public interface ClinicService {
 
     Collection<PetType> findPetTypes();
 
-    Owner findOwnerById(int id);
-
     Pet findPetById(int id);
-
     void savePet(Pet pet);
-
+    
     void saveVisit(Visit visit);
-
-    Collection<Vet> findVets();
-
-    void saveOwner(Owner owner);
-
+    
     Collection<Owner> findAll();
-
+    Owner findOwnerById(int id);
+    void saveOwner(Owner owner);
+    
+    Collection<Vet> findVets();
+ 
+    Collection<Company> findAllCompany();
+    Company findComByID(int id);   
+    void saveCompany(Company com);
+    
+    Collection<Comment> allComment();
+    Collection<Comment> findAllCommentByOwner( Owner own);
+    Collection<Comment> findAllCommentByCompanies( Company own);
+    Comment findCommentByID(int id);
+    void saveComment(Comment comment);
+    
+    Collection<FileInfo> findAllFile();
+    FileInfo findFileByID();
+    void saveFile(FileInfo file);
 }
